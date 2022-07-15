@@ -4,6 +4,7 @@
 const compra = (tipoProducto, precio, cantidad) => {
     let descuento = 0.15;
 
+
     while(precio <= 0 || cantidad <= 0){
         console.log("no se agrego precio o cantidad");
         precio = prompt("vuelva a cargar precio: ");
@@ -11,6 +12,7 @@ const compra = (tipoProducto, precio, cantidad) => {
     }
 
     let total = precio * cantidad;
+
 
     if (cantidad > 3 && tipoProducto == "remera") {
         console.log("Tiene acceso al descuento de 15%");  
@@ -24,16 +26,36 @@ const compra = (tipoProducto, precio, cantidad) => {
     }else{
         console.log("No se agrego ningun descuento")
     }
-
- 
     
     return total;
 
 }
 
+//Bienvenida de la pagina
+alert("Bienvenido a Persia");
+alert("productos con descuantos: \n -remera \n-pantalon \n-campera")
 
-let cliente = compra(prompt("tipo de prodcto: "), prompt("precio: "), prompt("cantidad: "));
-console.log("Total compra: " + "$" + cliente);
+class cliente{
+    constructor(nombre,pais){
+        this.nombre = nombre;
+        this.pais = pais;
+    }
+
+
+}
+
+const cliente1 = new cliente(prompt("ingrese su nombre: "),prompt("ingrese su nacionalidad: "));
+
+let clienteCompra = compra(prompt("producto a comprar: "), prompt("precio: "), prompt("cantidad: "));
+
+
+let clienteArr = [cliente1.nombre,cliente1.pais,clienteCompra];
+console.log(clienteArr[0] + " de " + clienteArr[1] + " a hecho una compra de : \n" + " $" + clienteCompra);
+
+
+
+
+
 
 
 
